@@ -1,9 +1,7 @@
-$.getJSON('data.json', function(data){
-   console.log(data);
-   $("#thing").text(data.object.nested);
-})
+$.getJSON('../json/data.json', function(data) {
+  console.log(data);
+});
 
-// console.log(JSON.stringify({a:1,b:2}));
-// console.log(JSON.parse('{"a":1,"b":2}'));
-
-
+var cards = JSON.parse;
+console.log(cards);
+var pile = [];
