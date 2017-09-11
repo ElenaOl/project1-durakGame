@@ -1,0 +1,182 @@
+var cards = [
+  {
+    rank: 6,
+    suit: "hearts",
+    cardImage: "images/queen-of-hearts.png"
+  },
+  {
+    rank: 6,
+    suit: "diamonds",
+    cardImage: "images/queen-of-diamonds.png"
+  },
+  {
+    rank: 6,
+    suit: "clubs",
+    cardImage: "images/king-of-hearts.png"
+  },
+  {
+    rank: 6,
+    suit: "spades",
+    cardImage: "images/king-of-diamonds.png"
+  },
+  {
+    rank: 7,
+    suit: "hearts",
+    cardImage: "images/queen-of-hearts.png"
+  },
+  {
+    rank: 7,
+    suit: "diamonds",
+    cardImage: "images/queen-of-diamonds.png"
+  },
+  {
+    rank: 7,
+    suit: "clubs",
+    cardImage: "images/king-of-hearts.png"
+  },
+  {
+    rank: 7,
+    suit: "spades",
+    cardImage: "images/king-of-diamonds.png"
+  },
+  {
+    rank: 8,
+    suit: "hearts",
+    cardImage: "images/queen-of-hearts.png"
+  },
+  {
+    rank: 8,
+    suit: "diamonds",
+    cardImage: "images/queen-of-diamonds.png"
+  },
+  {
+    rank: 8,
+    suit: "clubs",
+    cardImage: "images/king-of-hearts.png"
+  },
+  {
+    rank: 8,
+    suit: "spades",
+    cardImage: "images/king-of-diamonds.png"
+  },
+  {
+    rank: 9,
+    suit: "hearts",
+    cardImage: "images/queen-of-hearts.png"
+  },
+  {
+    rank: 9,
+    suit: "diamonds",
+    cardImage: "images/queen-of-diamonds.png"
+  },
+  {
+    rank: 9,
+    suit: "clubs",
+    cardImage: "images/king-of-hearts.png"
+  },
+  {
+    rank: 9,
+    suit: "spades",
+    cardImage: "images/king-of-diamonds.png"
+  },
+  {
+    rank: 10,
+    suit: "hearts",
+    cardImage: "images/queen-of-hearts.png"
+  },
+  {
+    rank: 10,
+    suit: "diamonds",
+    cardImage: "images/queen-of-diamonds.png"
+  },
+  {
+    rank: 10,
+    suit: "clubs",
+    cardImage: "images/king-of-hearts.png"
+  },
+  {
+    rank: 10,
+    suit: "spades",
+    cardImage: "images/king-of-diamonds.png"
+  },
+  {
+    rank: 11,
+    suit: "hearts",
+    cardImage: "images/queen-of-hearts.png"
+  },
+  {
+    rank: 11,
+    suit: "diamonds",
+    cardImage: "images/queen-of-diamonds.png"
+  },
+  {
+    rank: 11,
+    suit: "clubs",
+    cardImage: "images/king-of-hearts.png"
+  },
+  {
+    rank: 11,
+    suit: "spades",
+    cardImage: "images/king-of-diamonds.png"
+  },
+  {
+    rank: 12,
+    suit: "hearts",
+    cardImage: "images/queen-of-hearts.png"
+  },
+  {
+    rank: 12,
+    suit: "diamonds",
+    cardImage: "images/queen-of-diamonds.png"
+  },
+  {
+    rank: 12,
+    suit: "clubs",
+    cardImage: "images/king-of-hearts.png"
+  },
+  {
+    rank: 12,
+    suit: "spades",
+    cardImage: "images/king-of-diamonds.png"
+  },
+  {
+    rank: 13,
+    suit: "hearts",
+    cardImage: "images/queen-of-hearts.png"
+  },
+  {
+    rank: 13,
+    suit: "diamonds",
+    cardImage: "images/queen-of-diamonds.png"
+  },
+  {
+    rank: 13,
+    suit: "clubs",
+    cardImage: "images/king-of-hearts.png"
+  },
+  {
+    rank: 13,
+    suit: "spades",
+    cardImage: "images/king-of-diamonds.png"
+  },
+  {
+    rank: 14,
+    suit: "hearts",
+    cardImage: "images/queen-of-hearts.png"
+  },
+  {
+    rank: 14,
+    suit: "diamonds",
+    cardImage: "images/queen-of-diamonds.png"
+  },
+  {
+    rank: 14,
+    suit: "clubs",
+    cardImage: "images/king-of-hearts.png"
+  },
+  {
+    rank: 14,
+    suit: "spades",
+    cardImage: "images/king-of-diamonds.png"
+  }
+];

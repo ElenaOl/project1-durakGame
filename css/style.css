@@ -1,0 +1,51 @@
+body {
+
+}
+.compCards {
+ display: inline-block;
+ background: blue;
+ height: 200px;
+ width: 100px;
+ margin-top: 50px;
+}
+
+.defenceBoard{
+ display: inline-block;
+ background: yellow;
+ height: 200px;
+ width: 100px;
+ margin-top: 50px;
+}
+
+.attackBoard {
+ display: inline-block;
+ background: green;
+ height: 200px;
+ width: 100px;
+ margin-top: 50px;
+}
+
+.playerCards {
+ display: inline-block;
+ background: red;
+ height: 200px;
+ width: 100px;
+ margin-top: 50px;
+}
+
+#trupmCard{
+ display: inline-block;
+ background: purple;
+ height: 100px;
+ width: 200px;
+ margin-top: 50px;
+}
+
+
+#pile{
+ display: inline-block;
+ background: red;
+ height: 200px;
+ width: 100px;
+ margin-top: 50px;
+}
