@@ -39,13 +39,16 @@ body {
  height: 100px;
  width: 200px;
  margin-top: 50px;
+ 
 }
 
 
 #pile{
  display: inline-block;
  background: red;
- height: 200px;
- width: 100px;
+ height: 321px;
+ width: 220px;
  margin-top: 50px;
+ background: url(../images/back.jpg);
+ border: 1px black solid;
 }
