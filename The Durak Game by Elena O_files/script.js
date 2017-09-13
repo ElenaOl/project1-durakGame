@@ -49,7 +49,12 @@ jsonReq.success(function(data){
     }else{
       updateUi();
       alert("Please choose a card for attack");
+      //playerAttack();
     }
+    
+
+
+
 });
 
 
@@ -80,15 +85,6 @@ var chooseCardToStartAttack = function(){
   });
   sortCards(nonTrumpCards);
   return nonTrumpCards[0];
-}
-// of comp
-var chooseCardToContinueAttack = function(){
-
-}
-// of player
-var isPlayerAttackLegit = function(playerCard){
-  var sameRank = 
-
 }
 
 //this function removes spesific card from array
@@ -133,47 +129,11 @@ var playerClickedOnCard = function(){
     }
     defenceBoard.push(playerCard);
     removeCard(playerCards, playerCard);
-    if (checkWin()){
-      return;
-    }
-    var compCardToAttack = chooseCardToContinueAttack();
-    if (compCardToAttack === undefined){
-      attackBoard = [];
-      defenceBoard = [];
-      addToSixCards(compCards);
-      addToSixCards(playerCards);
-      isUserAttack =true;
-    }else{
-      // if comp has card to add to attack
-      attackBoard.push(compCardToAttack);
-      removeCard(compCards, compCardToAttack);
-      if (checkWin()){
-        return;
-      }
-    }
-  }else{
-    //player attacks
-    var isLegit = isPlayerAttackLegit(playerCard);
-    if(isLegit === false){
-      return;
-    }
-
-    attackBoard.push(playerCard);
-    removeCard(playerCards, playerCard);
-    if (checkWin()){
-      return;
-    }
-
-
-    //comp defence
-    var compDefence = chooseCardToDefend();
   }
   updateUi();
 }
 
-var checkWin = function(){
-  return false;
-}
+
 /////////////////////////////////////////////////////////////////////////////
 //////////////////////////////// UI /////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
