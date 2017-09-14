@@ -1,67 +1,84 @@
 body {
-
+ background: lightgrey;
+ text-align: center;
+ /*margin: 0 auto;*/
+ margin: 0;
 }
+
 .card {
- display: inline-block;
  height: 150px;
  width: 100px;
  margin-top: 50px;
  background: white;
- border: border: 1px black solid;
+ border: 3px double black;
  margin: 2px;
 }
 
-#defenceBoard{
- /*display: inline-block;*/
- /*background: yellow;*/
- height: 200px;
+#align{
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 0;
+  /*background-color: red;*/
+  justify-content: center;
+}
+
+#board{
+  display: inline-block;
+  margin-left: 50px;
+  text-align: left;
+}
+
+#defenseBoard{
+ /*background: green;*/
+ height: 170px;
+ width: 700px;
+ margin-left: 50px;
  margin-top: 50px;
+ /*margin-bottom: 0px;*/
+ position: absolute;
+ border: 1px black;
 }
 
 #attackBoard {
- /*display: inline-block;*/
- /*background: green;*/
- height: 200px;
- margin-top: 50px;
+ /*background: yellow;*/
+ height: 170px;
+ width: 700px;
+ margin-left: 50px;
+ margin-top: 0px;
+ margin-bottom: 100px;
+ border: 1px black;
+}
+#compHand {
+  margin-top: 50px
 }
 
-.playerCards {
+#playerHand {
+  margin: 50px auto;
+  margin-bottom: 0px;
+}
+
+#trump_pile {
  display: inline-block;
  height: 150px;
- width: 100px;
- margin-top: 50px;
- background: white;
- border: border: 1px black solid;
- margin: 2px;
+ width: 150px;
+ text-align: center;  
+ margin: 100px 50px;
 }
-
-#trupmCard{
+#trumpCard{
  transform: rotate(90deg);
- height: 150px;
- width: 100px;
- margin-top: 50px;
- background: white;
- border: 1px black solid;
- /*margin: 2px;*/
+ position: absolute;
+ margin: 0;
 }
-
-
 #pile{
- display: inline-block;
- background: red;
- height: px;
- width: px;
- margin-top: 50px;
- /*background: url(../images/back.jpg);*/
- border: 1px black solid;
+ display:inline-block;
+ position: absolute;
+ margin: 0;
 }
 
-/*.loader {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
-  background: url(../images/page-loader.gif) 50% 50% no-repeat rgb(249,249,249);
-}*/
+#pick-up-btn, #discard-btn, #restart-btn {
+  margin: 50px auto;
+  margin-bottom: 100px;
+  padding: 10px 30px;
+  color: blue;
+  border-color: blue;
+}
