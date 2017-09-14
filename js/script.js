@@ -276,7 +276,7 @@ var restart = function(){
 
       console.log(pile);
       shuffle(pile);
-      
+
       addToSixCards(playerCards);
       addToSixCards(compCards);
       trumpCard = pile.pop();

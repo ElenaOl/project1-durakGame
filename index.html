@@ -12,18 +12,25 @@
   <h1>Let's Play Durak</h1>
   <h2>Before you start please review the <a>rules</a></h2>
   <h2>Let me introduce myself</h2>  
-  <button type="button" id="pick-up-btn">Pick up cards</button>
-  <button type="button" id="discard-btn">Discard cards</button>
-  <button type="button" id="restart-btn">Restart Game</button>
-
-  <div>
-    <div id="trumpCard"></div>
-    <div id="pile"></div>
-  </div>  
+  
+  
   <div id="compHand"></div>
-  <div id="defenseBoard"></div>
-  <div id="attackBoard"></div>
+  <div id="align">
+    <div id="board">
+     <div id="defenseBoard"></div>
+     <div id="attackBoard"></div>
+    </div>
+    <div id="trump_pile">
+      <div id="trumpCard"></div>
+      <div id="pile"></div>
+    </div> 
+  </div>  
   <div id="playerHand"></div>
+  <div>
+    <button type="button" id="pick-up-btn">Pick up cards</button>
+    <button type="button" id="discard-btn">Discard cards</button>
+    <button type="button" id="restart-btn">Restart Game</button>
+  </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
