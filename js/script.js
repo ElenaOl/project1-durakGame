@@ -9,7 +9,20 @@ var trumpCard;
 var trumpCardWasTaken;
 var isUserAttack;
 
+var playerScore = 0;
+var compScore = 0;
 
+var playerHighScore = $("#playerHighScore");
+var compHighScore = $("#compHighScore");
+
+localStorage.player;
+localStorage.comp;
+if(localStorage.player === undefined){
+  localStorage.player = 0;
+}
+if(localStorage.comp === undefined){
+  localStorage.comp = 0;
+}
 
 function shuffle(a) {
   console.log("shuffling");
@@ -32,6 +45,7 @@ var addToSixCards = function(array){
       if (!trumpCardWasTaken){
         array.push(trumpCard);
         trumpCardWasTaken = true;
+
       }
       return;   
     }else{
@@ -61,11 +75,14 @@ var chooseCardToStartAttack = function(){
       return trumpCard.suit !== card.suit;
     });
   sortCards(nonTrumpCards);
-  return nonTrumpCards[0];
-
-  // TODO what if all cards are trump
+  if (nonTrumpCards.length > 0){
+    return nonTrumpCards[0];
+  }
+  
+  // only trump cards if we got here
+  sortCards(compCards);
+  return compCards[0];
 }
-
 
 
 var doesSameRankExist = function(card, array){
@@ -204,7 +221,6 @@ var playerAttack = function(playerCard){
   attackBoard.push(playerCard);
   removeCard(playerCards, playerCard);
   
-
   if (checkWin()){
     return;
   }
@@ -221,13 +237,12 @@ var playerAttack = function(playerCard){
   // comp has a card to defend
   defenseBoard.push(compDefense);
   removeCard(compCards, compDefense);
-  if (checkWin()){
-    return;
-  }
-
+  
   if(attackBoard.length === 6){
     attackOver();
   }
+
+  checkWin();
 }
 
 var playerClickedOnCard = function(){
@@ -243,27 +258,25 @@ var playerClickedOnCard = function(){
     playerAttack(playerCard);
   }  
 
+  updateUi();
+}
+
+var discardOrPickUpCards = function(){
+  if(isUserAttack){
+    attackOver();
+  }else{
+    playerCards = playerCards.concat(attackBoard, defenseBoard);
+    attackOver();
+    isUserAttack = false;
+  }
+
+  var compAttackCard = chooseCardToStartAttack();
+  removeCard(compCards, compAttackCard);
+  attackBoard.push(compAttackCard);
+  updateUi();
   checkWin();
-  updateUi();
 }
 
-var discardCards = function(){
-  attackOver();
-  var compAttackCard = chooseCardToStartAttack();
-  removeCard(compCards, compAttackCard);
-  attackBoard.push(compAttackCard);
-  updateUi();
-}
-
-var pickUpCards = function(){
-  playerCards = playerCards.concat(attackBoard, defenseBoard);
-  attackOver();
-  isUserAttack = false;
-  var compAttackCard = chooseCardToStartAttack();
-  removeCard(compCards, compAttackCard);
-  attackBoard.push(compAttackCard);
-  updateUi();
-}
 
 var restart = function(){
   var jsonReq = $.getJSON('../json/data.json');
@@ -289,7 +302,10 @@ var restart = function(){
         updateUi();
       }else{
         updateUi();
-        alert("Please choose a card for attack");
+        setTimeout(function(){
+          alert("Please choose a card for attack");
+        }, 500);
+        
       }
   });
 }
@@ -300,18 +316,22 @@ var restart = function(){
 
 var checkWin = function(){
   if(!trumpCardWasTaken){
-    return;
+    return false;
   }
 
   if (playerCards.length === 0){
+      playerScore +=1;
       alert("You Won");
   }else if(compCards.length === 0){
+      compScore +=1;
       alert("sorry, but you lost")
   }else{
-    return;
+    // both have cards
+    return false;
   }
 
   restart();
+  return true;
 }
 
 
@@ -368,6 +388,8 @@ var setTrumpCardUi = function(){
   $("#trumpCard").empty();
   if(trumpCardWasTaken === false){
     addCardToElement(trumpCard.cardImage, "trumpCard", "card");
+  }else if (trumpCardWasTaken === true){
+   addCardToElement(trumpCard.cardImage, "trumpCard", "smallCard");
   }
 }
 
@@ -387,10 +409,7 @@ var setDefenseBoardUi = function(){
 }  
 
 
-
-
-var playerPickUpCards = $("#pick-up-btn").click(pickUpCards);
-var playerDiscardCards = $("#discard-btn").click(discardCards);
+var playerDiscardCards = $("#discard-pick-up-btn").click(discardOrPickUpCards);
 var restartGame = $("#restart-btn").click(restart);
 
 restart();

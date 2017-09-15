@@ -1,13 +1,21 @@
 body {
- background: lightgrey;
- text-align: center;
+ text-align: left;
  margin: 0;
+ background: grey;
 }
- h1{
+ h1, h2{
   color: red;
   text-transform: uppercase;
+  text-align: left;
+  margin-left: 30px;
  }
- 
+#border{
+  margin-bottom: 200px;
+  margin-left: 30px;
+  margin-right: 30px;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  text-align: center;
+}
 .card {
  height: 150px;
  width: 100px;
@@ -15,42 +23,34 @@ body {
  border: 3px double black;
  margin: 2px;
 }
-
-#align{
-  width: 100%;
-  margin-top: 0px;
+.smallCard{
+ height: 90px;
+ width: 60px;
 }
-
 #board{
   display: inline-block;
-  margin-right: 100px;
+  margin-right: 20px;
   margin-top: 0px;
   text-align: left;
   position: relative;
+  height: 225px;
+  width: 710px;
 }
-
 #defenseBoard{
  height: 170px;
  width: 700px;
- margin-left: 50px;
  margin-top: 50px;
  position: absolute;
  border: 1px black;
 }
-
 #attackBoard {
  height: 170px;
  width: 700px;
- margin-left: 50px;
  margin-top: 0px;
  margin-bottom: 100px;
  border: 1px black;
 }
-#compHand {
-  margin: 75px auto;
-}
-
-#playerHand {
+#compHand, #playerHand {
   margin: 0 auto;
 }
 
@@ -59,7 +59,7 @@ body {
  height: 150px;
  width: 150px;
  text-align: center;  
- margin: 0px;
+ margin-top: 20px;
  position: absolute;
 }
 #trumpCard{
@@ -73,10 +73,22 @@ body {
  margin: 0;
 }
 
-#pick-up-btn, #discard-btn, #restart-btn {
-  margin: 50px auto;
+#discard-pick-up-btn, #restart-btn {
+  margin: 50px;
   margin-bottom: 100px;
   padding: 10px 30px;
   color: blue;
   border-color: blue;
+}
+.score{
+ display: inline-block; 
+ height: 100px;
+ width: 100px;
+ border: 3px blue solid;
+}
+#score-container {
+  /*background: red;*/
+  height: 110px;
+  position: relative;
+  text-align: left;
 }
