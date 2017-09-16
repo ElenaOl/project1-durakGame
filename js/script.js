@@ -12,15 +12,10 @@ var isUserAttack;
 var playerScore = 0;
 var compScore = 0;
 
-var playerHighScore = $("#playerHighScore");
-var compHighScore = $("#compHighScore");
-
-localStorage.player;
-localStorage.comp;
-if(localStorage.player === undefined){
+if(localStorage["player"] === undefined){
   localStorage.player = 0;
 }
-if(localStorage.comp === undefined){
+if(localStorage["comp"] === undefined){
   localStorage.comp = 0;
 }
 
@@ -45,20 +40,52 @@ var addToSixCards = function(array){
       if (!trumpCardWasTaken){
         array.push(trumpCard);
         trumpCardWasTaken = true;
-
       }
       return;   
     }else{
       array.push(dealingCard);
+      sortCardsBySuit(array);
     }
   }
 }  
 
-
-//randomize desicion to start game
-var doesPlayerStart = function(){
-  return Math.random() < 0.5;
+var sortCardsBySuit = function(array){
+    array.sort(function(card1,card2){
+     return card1.suit < card2.suit;
+  });
 }
+
+
+//desicion to start game
+var doesPlayerStart = function(){
+  var playerTrumpCards = playerCards.filter(function(card){
+      return trumpCard.suit === card.suit;
+    });
+
+  var compTrumpCards = compCards.filter(function(card){
+      return trumpCard.suit === card.suit;
+    });
+
+  sortCards(compTrumpCards);
+  sortCards(playerTrumpCards);
+  
+  if (compTrumpCards.length !== 0 && playerTrumpCards.length !== 0){
+    //both have trump cards
+    return (playerTrumpCards[0].rank < compTrumpCards[0].rank);
+  }
+  if (compTrumpCards.length === 0 && playerTrumpCards === 0){
+    //both don't have trump cards
+    return Math.random() > 0.5;
+  }
+  if (compTrumpCards.length === 0 && playerTrumpCards !== 0){
+    //only player has trump cards
+    return true;
+  }
+  
+  //only comp has trump cards
+  return false; 
+} 
+  
 
 
 // sorts the recieved array. returns nothing
@@ -67,7 +94,6 @@ var sortCards = function(array){
     return card1.rank - card2.rank;
   });
 }
-
 
 //decision for computer to start with lowest card that is not a trump card
 var chooseCardToStartAttack = function(){
@@ -299,14 +325,8 @@ var restart = function(){
         var compAttackCard = chooseCardToStartAttack();
         removeCard(compCards, compAttackCard);
         attackBoard.push(compAttackCard);
-        updateUi();
-      }else{
-        updateUi();
-        setTimeout(function(){
-          alert("Please choose a card for attack");
-        }, 500);
-        
       }
+      updateUi();
   });
 }
 
@@ -320,11 +340,13 @@ var checkWin = function(){
   }
 
   if (playerCards.length === 0){
-      playerScore +=1;
       alert("You Won");
+      playerScore +=1;
+      localStorage.player = parseInt(localStorage.player) + 1;
   }else if(compCards.length === 0){
-      compScore +=1;
       alert("sorry, but you lost")
+      compScore +=1;
+      localStorage.comp = parseInt(localStorage.comp) + 1;
   }else{
     // both have cards
     return false;
@@ -348,6 +370,9 @@ var updateUi = function(){
  setTrumpCardUi();
  setAttackBoardUi();
  setDefenseBoardUi();
+ updateScoreUi();
+ updateWhoAttackUi();
+ updateTotalScoreUi();
 }
 
 
@@ -365,9 +390,9 @@ var setPlayerCardsUi = function(){
   for(var i = 0; i< playerCards.length; i++){
     var cardElement = addCardToElement(playerCards[i].cardImage, "playerHand", "card");
     cardElement.addEventListener("click", playerClickedOnCard);
+
   }
 }
-
 
 var setCompCardsUi = function(){
   $("#compHand").empty();
@@ -411,6 +436,30 @@ var setDefenseBoardUi = function(){
 
 var playerDiscardCards = $("#discard-pick-up-btn").click(discardOrPickUpCards);
 var restartGame = $("#restart-btn").click(restart);
+
+var updateScoreUi = function(){
+$("#playerScore").empty();
+$("#compScore").empty();
+$("#playerScore").append("<h3>Your score is: " + playerScore + "</h3>");
+$("#compScore").append("<h3>Computer score is: " + compScore + "</h3>");
+}
+
+var updateWhoAttackUi = function(){
+  $("#who-attack").empty();
+  if(isUserAttack){
+    $("#who-attack").append("<h3>Player attack</h3>");
+  }else{
+    $("#who-attack").append("<h3>Computer attack</h3>");
+  }
+}
+
+function updateTotalScoreUi(){
+  $("#playerHighScore").empty();
+  $("#compHighScore").empty();
+  $("#playerHighScore").append("<h3>Your highest score: " + localStorage.player + "</h3>");
+  $("#compHighScore").append("<h3>Computer highest score: " + localStorage.comp + "</h3>");
+}  
+
 
 restart();
 
