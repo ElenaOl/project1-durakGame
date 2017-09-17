@@ -447,19 +447,44 @@ $("#compScore").append("<h3>Computer score is: " + compScore + "</h3>");
 var updateWhoAttackUi = function(){
   $("#who-attack").empty();
   if(isUserAttack){
-    $("#who-attack").append("<h3>Player attack</h3>");
+    $("#who-attack").append("<h3>Player attack</h3>").css("color", "#FF4500");
   }else{
-    $("#who-attack").append("<h3>Computer attack</h3>");
+    $("#who-attack").append("<h3>Computer attack</h3>").css("color", "#2E8B57");
   }
 }
 
 function updateTotalScoreUi(){
   $("#playerHighScore").empty();
   $("#compHighScore").empty();
-  $("#playerHighScore").append("<h3>Your highest score: " + localStorage.player + "</h3>");
-  $("#compHighScore").append("<h3>Computer highest score: " + localStorage.comp + "</h3>");
+  $("#playerHighScore").append("<h3>Your total wins: " + localStorage.player + "</h3>");
+  $("#compHighScore").append("<h3>Computer total wins: " + localStorage.comp + "</h3>");
 }  
 
+  // Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+}
 
 restart();
 

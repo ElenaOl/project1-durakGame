@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <title>The Durak Game by Elena O</title>
-  <style>
+  <!-- <style>
     #border {
       background-color: lightblue;
       }
@@ -15,16 +16,31 @@
           background-color: lightgreen;
       }
     }
-  </style>
+  </style> -->
 </head>
 <body>
-  <!-- <div class="loader"></div> -->
-  <h1>Let's Play Durak</h1>
-  <h2>Before you start please review the <a>rules</a></h2>
-  <p></p> 
-  
-<div id="border"> 
+<header>
+   <h1>Let's Play Durak</h1>
 
+ 
+   <button id="myBtn">Please review the Rules</button>
+   <div id="myModal" class="modal">
+    <div class="modal-content">
+     <span class="close">&times;</span>
+     <p>The object of the game is to get rid of all one's cards. At the end of the game, the last player with cards in their hand is the durak (fool).<br> <span>Initiation: </span>
+           This game is using a deck of 36 shuffled cards. Each player receives six cards. The bottom card of the remaining deck is laid open and determines the trump suit. The remainder of the deck is placed on top of the revealed card, forming a draw pile called the prikup ("talon"). The revealed card remains part of the talon and is drawn as the last card. Cards are discarded due to successful defenses.<br><span>The game: </span>
+           This game is played by one player against computer. The player with the lowest trump is the first attacker (starts the game by attack), you can see anouncement for who attacks first at the left upper side of the playing area. If computer attacks you will see a card in the middle of the screen for you to defense against it.<br><span>The cards: </span> Ace is the highest rank and six is the lowest. Trumps always beat non-trump cards regardless of rank (e.g., a trump six beats a non-trump ace).<br><span>Attack: </span>
+            The attacker opens the turn by playing one card face up on the table as an attacking card. The defender has to immediately attempt defense in response to the initial attack. Then cards that are of the same rank as cards on the board might be added by the attacker to the game area.<br><span>Defense: </span>The defender attempts to beat the attacking cards by playing higher-valued defending cards from their hand. One card is played to defend against each attacking card, and it must be in the attacking card's suit or the trump suit. The defending cards are placed on top of the attacking cards so that players can keep track of which card is defending against which.
+          At any point during a defense, other player can add extra attacking cards, provided that for each new attacking card, there is already a card of the same rank on the table (either defending or attacking), and the total number of attacking cards does not exceed the number of cards in the defender's hand or maxsimum of 6 cards for attack. The defender must also defend against these new cards. 
+          At any point during the turn, a defender unwilling or unable to beat all attacking cards may abandon the defense by picking up all the cards on the table.You have a special button for this function on the right of the pile cards. This ends the turn. The failed defender loses their turn to attack. If, however, the defender has beaten all attacking cards, the defender has triumphed. The turn ends, all cards on the table are discarded. You have a discard button on the right of the pile cards, that you can you to announce that your attack is over. The successful defender opens the next turn as the new attacker. <br><span>End of turn: </span> 
+          At the end of each turn, whether or not the defense was successful, up to six cards are added to each player or the talon is exhausted. Once the talon is empty, play continues without further drawing. 
+          <br><span>Winning and losing: </span>
+          The player that left with cards in their hand is the loser (the fool or "durak").</p>
+    </div>
+   </div>
+ </header>
+ <main> 
+ <div id="border"> 
   <div id="score-container">
     <div id="who-attack"></div> 
     <div class="score"><h3 id="playerScore"></h3></div>
@@ -33,6 +49,10 @@
     <div class="score"><h3 id="compHighScore"></h3></div>
   </div>
   <div id="compHand"></div>
+  <div id="buttons">
+    <button type="button" id="discard-pick-up-btn">Discard/Pick-up cards</button>
+    <button type="button" id="restart-btn">Restart Game</button>
+  </div>
   <div id="board">
    <div id="defenseBoard"></div>
    <div id="attackBoard"></div>
@@ -41,12 +61,10 @@
     <div id="trumpCard"></div>
     <div id="pile"></div>
   </div> 
-  <div id="buttons">
-    <button type="button" id="discard-pick-up-btn">Discard/Pick-up cards</button>
-    <button type="button" id="restart-btn">Restart Game</button>
-  </div>
   <div id="playerHand"></div>
-</div>   
+ </div> 
+ </main>   
+ <footer></footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

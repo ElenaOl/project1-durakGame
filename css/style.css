@@ -1,12 +1,13 @@
 body {
- text-align: left;
- margin: 0;
- background: grey;
+ text-align: center;
+ margin: 0px;
+ background: url(../images/green-leather.jpg);
 }
- h1, h2{
+
+header {
   color: red;
   text-transform: uppercase;
-  text-align: left;
+  text-align: center;
   margin-left: 30px;
  }
  h3{
@@ -14,12 +15,15 @@ body {
  }
 #border{
   margin-bottom: 200px;
+  padding-bottom: 30px;
   margin-left: 30px;
   margin-right: 30px;
   box-shadow: 10px 10px 6px 28px rgba(0,0,0,0.3);
   border: 0px solid #000000;
   text-align: center;
+  background: lightgreen;
 }
+
 .card {
  height: 150px;
  width: 100px;
@@ -57,6 +61,7 @@ body {
 }
 #playerHand {
   margin: 0 auto;
+  margin-bottom: 50px;
 }
 #compHand{
   margin: 0 auto;
@@ -71,6 +76,17 @@ body {
  position: absolute;
  width: 10%;
 }
+
+#buttons{
+ display: inline-block;
+ width: 20%;
+ height: 150px;
+ text-align: center;  
+ margin-left: -250px;
+ margin-right: 50px;
+ position: absolute;
+}
+
 #trumpCard{
  transform: rotate(90deg);
  position: absolute;
@@ -97,7 +113,7 @@ body {
 .score, #who-attack{
  display: inline-block; 
  height: 40px;
- width: 270px;
+ width: 20%;
  text-align: center;
  margin: 0px;
  padding: 5px;
@@ -117,31 +133,83 @@ body {
  font-size: 25px;
  font-weight: bold;
  font-family: Georgia;
- color: black;
 }
-#playerScore, #compScore{
+
+#playerScore, #compScore, #playerHighScore, #compHighScore{
  color: blue;
  font-family: sans-serif;
  font-style: oblique;
  font-family: cursive;
- font-size: 20px;
+ font-size: 15px;
  font-weight: bold;
 }
 
 #playerHighScore, #compHighScore{
  color: purple;
- font-family: sans-serif;
- font-style: oblique;
- font-family: cursive;
- font-size: 20px;
- font-weight: bold;
 }
 
-#buttons{
- display: inline-block;
- width: 10%;
- height: 150px;
- text-align: center;  
- margin-left: 200px;
- position: absolute;
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 0px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: lightgreen; /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    margin-top: 50px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 95%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+p{
+  font-size: 15px;
+  color: blue;
+ font-family: sans-serif;
+ font-style: oblique;
+ text-align: left;
+}
+span{
+  color: red;
+  font-family: sans-serif;
+ font-style: oblique;
+ font-family: cursive;
+ font-size: 16px;
+ font-weight: bold;
+}
+#myBtn{
+  margin: 25px;
+  padding: 10px 30px;
+  color: red;
+  border: 2px double black;
+  font-weight: bold;
+  font-size: 16px;
+  font-style: oblique;
 }
