@@ -37,24 +37,22 @@ header {
 }
 #board{
   display: inline-block;
-  margin-right: 20px;
+  margin: 40px 0px;
   margin-top: 0px;
   text-align: left;
   position: relative;
   height: 225px;
-  width: 50%;
+  width: 60%;
 }
 
 #defenseBoard{
  height: 170px;
- width: 700px;
  margin-top: 50px;
  position: absolute;
  border: 1px black;
 }
 #attackBoard {
  height: 170px;
- width: 700px;
  margin-top: 0px;
  margin-bottom: 100px;
  border: 1px black;
@@ -62,6 +60,7 @@ header {
 #playerHand {
   margin: 0 auto;
   margin-bottom: 50px;
+  margin-top: 50px;
 }
 #compHand{
   margin: 0 auto;
@@ -79,12 +78,10 @@ header {
 
 #buttons{
  display: inline-block;
- width: 20%;
  height: 150px;
  text-align: center;  
- margin-left: -250px;
- margin-right: 50px;
  position: absolute;
+ width: 20%;
 }
 
 #trumpCard{
@@ -95,7 +92,7 @@ header {
 #pile{
  display:inline-block;
  position: absolute;
- margin: 0;
+ margin-left: 25px;
 }
 
 #discard-pick-up-btn, #restart-btn {
@@ -113,10 +110,10 @@ header {
 .score, #who-attack{
  display: inline-block; 
  height: 40px;
- width: 20%;
  text-align: center;
  margin: 0px;
  padding: 5px;
+ box-sizing: border-box;
 }
 
 #score-container {
@@ -126,6 +123,8 @@ header {
   margin: 0px;
   display: inline-flex;
   justify-content: space-around;
+  border: 2px black;
+  margin-bottom: 20px;
 }
 
 
@@ -140,7 +139,7 @@ header {
  font-family: sans-serif;
  font-style: oblique;
  font-family: cursive;
- font-size: 15px;
+ font-size: 12px;
  font-weight: bold;
 }
 
@@ -190,7 +189,7 @@ header {
 }
 
 p{
-  font-size: 15px;
+  font-size: 13px;
   color: blue;
  font-family: sans-serif;
  font-style: oblique;
@@ -201,7 +200,7 @@ span{
   font-family: sans-serif;
  font-style: oblique;
  font-family: cursive;
- font-size: 16px;
+ font-size: 13px;
  font-weight: bold;
 }
 #myBtn{

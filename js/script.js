@@ -438,10 +438,10 @@ var playerDiscardCards = $("#discard-pick-up-btn").click(discardOrPickUpCards);
 var restartGame = $("#restart-btn").click(restart);
 
 var updateScoreUi = function(){
-$("#playerScore").empty();
-$("#compScore").empty();
-$("#playerScore").append("<h3>Your score is: " + playerScore + "</h3>");
-$("#compScore").append("<h3>Computer score is: " + compScore + "</h3>");
+  $("#playerScore").empty();
+  $("#compScore").empty();
+  $("#playerScore").append("<h3>Your score</br>" + playerScore + "</h3>");
+  $("#compScore").append("<h3>Computer score</br>" + compScore + "</h3>");
 }
 
 var updateWhoAttackUi = function(){
@@ -456,11 +456,11 @@ var updateWhoAttackUi = function(){
 function updateTotalScoreUi(){
   $("#playerHighScore").empty();
   $("#compHighScore").empty();
-  $("#playerHighScore").append("<h3>Your total wins: " + localStorage.player + "</h3>");
-  $("#compHighScore").append("<h3>Computer total wins: " + localStorage.comp + "</h3>");
+  $("#playerHighScore").append("<h3>Your total wins</br>" + localStorage.player + "</h3>");
+  $("#compHighScore").append("<h3>Comp total wins</br>" + localStorage.comp + "</h3>");
 }  
 
-  // Get the modal
+// Get the modal
 var modal = document.getElementById('myModal');
 
 // Get the button that opens the modal
