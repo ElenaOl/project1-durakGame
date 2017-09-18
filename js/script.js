@@ -305,29 +305,27 @@ var discardOrPickUpCards = function(){
 
 
 var restart = function(){
-  var jsonReq = $.getJSON('../json/data.json');
-  jsonReq.success(function(data){
-      pile = data;
-      playerCards = [];
-      compCards = [];
-      attackBoard = [];
-      defenseBoard = [];
+  pile = getAllCards();
+  playerCards = [];
+  compCards = [];
+  attackBoard = [];
+  defenseBoard = [];
 
-      console.log(pile);
-      shuffle(pile);
-      
-      addToSixCards(playerCards);
-      addToSixCards(compCards);
-      trumpCard = pile.pop();
-      trumpCardWasTaken = false;
-      isUserAttack = doesPlayerStart();
-      if (isUserAttack === false){
-        var compAttackCard = chooseCardToStartAttack();
-        removeCard(compCards, compAttackCard);
-        attackBoard.push(compAttackCard);
-      }
-      updateUi();
-  });
+  console.log(pile);
+  shuffle(pile);
+  
+  addToSixCards(playerCards);
+  addToSixCards(compCards);
+  trumpCard = pile.pop();
+  trumpCardWasTaken = false;
+  isUserAttack = doesPlayerStart();
+  if (isUserAttack === false){
+    var compAttackCard = chooseCardToStartAttack();
+    removeCard(compCards, compAttackCard);
+    attackBoard.push(compAttackCard);
+  }
+  
+  updateUi();
 }
 
 
